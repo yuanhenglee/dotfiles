@@ -20,6 +20,7 @@ if ! zgen saved; then
   zgen load zsh-users/zsh-syntax-highlighting
   zgen load zsh-users/zsh-completions src
   zgen load romkatv/powerlevel10k powerlevel10k
+  zgen load jeffreytse/zsh-vi-mode
 
   # generate the init script from plugins above
   zgen save
@@ -34,6 +35,10 @@ fi
 	autoload -U compinit && compinit -u
 . /usr/share/autojump/autojump.sh
 
+# zsh-vi-mode
+# Only changing the escape key to `jk` in insert mode, we still
+# keep using the default keybindings `^[` in other modes
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 
 # alias
 alias ls='lsd'
@@ -45,8 +50,6 @@ alias ssh60000='sshpass -p yhl ssh yhl@140.113.86.106 -p 60000'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
-# export PATH="/home/yhl/anaconda3/bin:$PATH"  # commented out by conda initialize
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
