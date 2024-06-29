@@ -62,6 +62,9 @@ return {
 
       local cmp = require("cmp")
 
+      -- disable enter key
+      opts.mapping["<CR>"] = nil
+
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
