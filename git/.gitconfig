@@ -1,0 +1,8 @@
+[user]
+	name = yuanhenglee
+	email = yuanhenglee2000@gmail.com
+[core]
+	excludesfile = ~/.gitignore_global
+  editor = nvim 
+[pull]
+	rebase = true
