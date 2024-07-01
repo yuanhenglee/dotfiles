@@ -62,6 +62,9 @@ return {
 
       local cmp = require("cmp")
 
+      -- disable enter key
+      opts.mapping["<CR>"] = nil
+
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
@@ -98,5 +101,15 @@ return {
         },
       },
     },
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end,
   },
 }
