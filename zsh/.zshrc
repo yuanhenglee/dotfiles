@@ -1,13 +1,7 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+# Enable Powerlevel10k instant prompt.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
-# Homebrew path
-export PATH="/opt/homebrew/bin:$PATH"
-
 
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
@@ -29,12 +23,6 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# autojump
-	[[ -s /Users/yhl/.autojump/etc/profile.d/autojump.sh ]] && source /Users/yhl/.autojump/etc/profile.d/autojump.sh
-
-	autoload -U compinit && compinit -u
-. /usr/share/autojump/autojump.sh
-
 # zsh-vi-mode
 # Only changing the escape key to `jk` in insert mode, we still
 # keep using the default keybindings `^[` in other modes
@@ -48,22 +36,35 @@ alias ssh20000='sshpass -p yhl ssh yhl@140.113.86.106 -p 20000'
 alias ssh60000='sshpass -p yhl ssh yhl@140.113.86.106 -p 60000'
 alias vi='nvim'
 
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/yhl/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/yhl/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/yhl/anaconda3/etc/profile.d/conda.sh"
+case `uname` in
+  Darwin)
+    echo "Apply zshrc for Darwin"
+    # Homebrew path
+    export PATH="/opt/homebrew/bin:$PATH"
+    # autojump
+    [[ -s /Users/yhl/.autojump/etc/profile.d/autojump.sh ]] && source /Users/yhl/.autojump/etc/profile.d/autojump.sh
+    # pyenv
+    export PYENV_ROOT="$HOME/.pyenv"
+    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+  ;;
+  Linux)
+    echo "Apply zshrc for Linux"
+    # autojump
+    autoload -U compinit && compinit -u
+    . /usr/share/autojump/autojump.sh
+    # conda
+    __conda_setup="$('/home/yhl/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
     else
-        export PATH="/home/yhl/anaconda3/bin:$PATH"
+        if [ -f "/home/yhl/anaconda3/etc/profile.d/conda.sh" ]; then
+            . "/home/yhl/anaconda3/etc/profile.d/conda.sh"
+        else
+            export PATH="/home/yhl/anaconda3/bin:$PATH"
+        fi
     fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+    unset __conda_setup
+  ;;
+esac
 
