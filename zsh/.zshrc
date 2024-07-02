@@ -28,6 +28,8 @@ fi
 # keep using the default keybindings `^[` in other modes
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 
+unsetopt autocd
+
 # alias
 alias ls='lsd'
 alias ll='ls -la'
@@ -67,4 +69,5 @@ case `uname` in
     unset __conda_setup
   ;;
 esac
+
 
