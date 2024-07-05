@@ -5,3 +5,6 @@
 local map = vim.keymap.set
 
 map("i", "jj", "<ESC>", { silent = true })
+
+-- ctrl + f to search the word under the cursor
+map("n", "<C-f>", 'viwy/<C-r>"<CR>', { silent = true })
