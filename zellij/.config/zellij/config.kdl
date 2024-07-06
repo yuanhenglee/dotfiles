@@ -4,15 +4,15 @@ keybinds {
         bind "Ctrl g" { SwitchToMode "locked"; }
         bind "Ctrl b" { SwitchToMode "tmux"; }
 
-        bind "Alt n" { NewPane; }
-        bind "Alt i" { MoveTab "Left"; }
-        bind "Alt o" { MoveTab "Right"; }
-        bind "Ctrl h" { MoveFocusOrTab "Left"; }
-        bind "Ctrl l" { MoveFocusOrTab "Right"; }
-        bind "Ctrl j" { MoveFocus "Down"; }
-        bind "Ctrl k" { MoveFocus "Up"; }
-        bind "Alt =" "Alt +" { Resize "Increase"; }
-        bind "Alt -" { Resize "Decrease"; }
+        // bind "Alt n" { NewPane; }
+        // bind "Alt i" { MoveTab "Left"; }
+        // bind "Alt o" { MoveTab "Right"; }
+        // bind "Ctrl h" { MoveFocusOrTab "Left"; }
+        // bind "Ctrl l" { MoveFocusOrTab "Right"; }
+        // bind "Ctrl j" { MoveFocus "Down"; }
+        // bind "Ctrl k" { MoveFocus "Up"; }
+        // bind "Alt =" "Alt +" { Resize "Increase"; }
+        // bind "Alt -" { Resize "Decrease"; }
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
