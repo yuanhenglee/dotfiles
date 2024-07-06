@@ -130,4 +130,22 @@ return {
       },
     },
   },
+  {
+    -- include hidden files in the telescope file picker
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      defaults = {
+        vimgrep_arguments = {
+          "rg",
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case",
+          "--hidden",
+        },
+      },
+    },
+  },
 }
