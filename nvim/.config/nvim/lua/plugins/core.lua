@@ -148,4 +148,11 @@ return {
       },
     },
   },
+  {
+    "nmac427/guess-indent.nvim",
+    cmd = { "GuessIndent" },
+    opts = {
+      override_editorconfig = true,
+    },
+  },
 }
