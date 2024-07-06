@@ -11,8 +11,9 @@ if ! zgen saved; then
   # specify plugins here
   zgen oh-my-zsh
   zgen load zsh-users/zsh-autosuggestions
-  zgen load zsh-users/zsh-syntax-highlighting
-  zgen load zsh-users/zsh-completions src
+  # zgen load zsh-users/zsh-syntax-highlighting
+  zgen load zdharma-continuum/fast-syntax-highlighting
+  zgen load marlonrichert/zsh-autocomplete
   zgen load romkatv/powerlevel10k powerlevel10k
   zgen load jeffreytse/zsh-vi-mode
 
