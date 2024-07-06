@@ -49,6 +49,9 @@ case `uname` in
     export PYENV_ROOT="$HOME/.pyenv"
     [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
+
+    # emulate delete key
+    bindkey "^[[3~" delete-char
   ;;
   Linux)
     echo "Apply zshrc for Linux"
