@@ -148,8 +148,8 @@ keybinds {
         bind "l" { MoveFocus "Right"; SwitchToMode "Normal"; }
         bind "j" { MoveFocus "Down"; SwitchToMode "Normal"; }
         bind "k" { MoveFocus "Up"; SwitchToMode "Normal"; }
-        bind "H" "Left" { GoToPreviousTab; }
-        bind "L" "Right"{ GoToNextTab; }
+        bind "H" "Tab" { GoToPreviousTab; SwitchToMode "Normal"; }
+        bind "L" { GoToNextTab; SwitchToMode "Normal"; }
         bind "o" { FocusNextPane; }
         bind "d" { Detach; }
         bind "Space" { NextSwapLayout; }
