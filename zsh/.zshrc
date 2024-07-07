@@ -38,6 +38,7 @@ alias ssh10000='sshpass -p yhl ssh yhl@140.113.86.106 -p 10000'
 alias ssh20000='sshpass -p yhl ssh yhl@140.113.86.106 -p 20000'
 alias ssh60000='sshpass -p yhl ssh yhl@140.113.86.106 -p 60000'
 alias vi='nvim'
+alias zj='zellij'
 
 case `uname` in
   Darwin)
