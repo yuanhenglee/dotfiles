@@ -39,6 +39,7 @@ alias ssh20000='sshpass -p yhl ssh yhl@140.113.86.106 -p 20000'
 alias ssh60000='sshpass -p yhl ssh yhl@140.113.86.106 -p 60000'
 alias vi='nvim'
 alias zj='zellij'
+eval "$(gh copilot alias -- zsh)"
 
 case `uname` in
   Darwin)
