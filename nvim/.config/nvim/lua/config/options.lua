@@ -7,3 +7,6 @@ vim.wo.relativenumber = true
 
 -- scroll offset
 vim.wo.scrolloff = 10
+
+-- disable diagnostics
+vim.diagnostic.disable()
