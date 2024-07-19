@@ -26,28 +26,6 @@ return {
       options = {
         always_show_bufferline = true,
         separator_style = "slant",
-        -- hover = {
-        --   enable = true,
-        --   delay = 100,
-        --   reveal = { "close" },
-        -- },
-      },
-    },
-  },
-  {
-    -- add vim as global variable for lua diagnostic
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        lua_ls = {
-          settings = {
-            Lua = {
-              diagnostics = {
-                globals = { "vim" },
-              },
-            },
-          },
-        },
       },
     },
   },
@@ -70,10 +48,6 @@ return {
           if cmp.visible() then
             -- You could replace select_next_item() with confirm({ select = true }) to get VS Code autocompletion behavior
             cmp.confirm({ select = true })
-          -- elseif vim.snippet.active({ direction = 1 }) then
-          --   vim.schedule(function()
-          --     vim.snippet.jump(1)
-          --   end)
           elseif has_words_before() then
             cmp.complete()
           else
@@ -111,24 +85,6 @@ return {
         -- Configuration here, or leave empty to use defaults
       })
     end,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        clangd = {
-          cmd = {
-            "clangd",
-            "--background-index",
-            "--clang-tidy",
-            "--header-insertion=iwyu",
-            "--completion-style=detailed",
-            "--function-arg-placeholders",
-            "--fallback-style=Google",
-          },
-        },
-      },
-    },
   },
   {
     -- include hidden files in the telescope file picker
