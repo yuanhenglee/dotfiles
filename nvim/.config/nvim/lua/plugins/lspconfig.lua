@@ -4,7 +4,6 @@ return {
     servers = {
       -- add vim as global variable for lua diagnostic
       lua_ls = {
-        autoformat = false,
         settings = {
           Lua = {
             diagnostics = {
