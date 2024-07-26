@@ -3,6 +3,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# zsh-vi-mode
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
+ZVM_INIT_MODE=sourcing
+
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
 # if the init script doesn't exist
@@ -24,10 +28,6 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# zsh-vi-mode
-# Only changing the escape key to `jk` in insert mode, we still
-# keep using the default keybindings `^[` in other modes
-ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 
 unsetopt autocd
 
@@ -47,7 +47,7 @@ case `uname` in
     # Homebrew path
     export PATH="/opt/homebrew/bin:$PATH"
     # autojump
-    [[ -s /Users/yhl/.autojump/etc/profile.d/autojump.sh ]] && source /Users/yhl/.autojump/etc/profile.d/autojump.sh
+    # [[ -s /Users/yhl/.autojump/etc/profile.d/autojump.sh ]] && source /Users/yhl/.autojump/etc/profile.d/autojump.sh
     # pyenv
     export PYENV_ROOT="$HOME/.pyenv"
     [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
@@ -59,7 +59,7 @@ case `uname` in
   Linux)
     echo "Apply zshrc for Linux"
     # autojump
-    autoload -U compinit && compinit -u
+    # autoload -U compinit && compinit -u
     . /usr/share/autojump/autojump.sh
     # conda
     __conda_setup="$('/home/yhl/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -76,4 +76,8 @@ case `uname` in
   ;;
 esac
 
+# disable alt c key binding
+FZF_ALT_C_COMMAND=""
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
