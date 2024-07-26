@@ -34,9 +34,6 @@ unsetopt autocd
 # alias
 alias ls='lsd'
 alias ll='ls -la'
-alias ssh10000='sshpass -p yhl ssh yhl@140.113.86.106 -p 10000'
-alias ssh20000='sshpass -p yhl ssh yhl@140.113.86.106 -p 20000'
-alias ssh60000='sshpass -p yhl ssh yhl@140.113.86.106 -p 60000'
 alias vi='nvim'
 alias zj='zellij'
 eval "$(gh copilot alias -- zsh)"
@@ -46,8 +43,6 @@ case `uname` in
     echo "Apply zshrc for Darwin"
     # Homebrew path
     export PATH="/opt/homebrew/bin:$PATH"
-    # autojump
-    # [[ -s /Users/yhl/.autojump/etc/profile.d/autojump.sh ]] && source /Users/yhl/.autojump/etc/profile.d/autojump.sh
     # pyenv
     export PYENV_ROOT="$HOME/.pyenv"
     [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
@@ -58,9 +53,6 @@ case `uname` in
   ;;
   Linux)
     echo "Apply zshrc for Linux"
-    # autojump
-    # autoload -U compinit && compinit -u
-    . /usr/share/autojump/autojump.sh
     # conda
     __conda_setup="$('/home/yhl/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
     if [ $? -eq 0 ]; then
@@ -81,3 +73,5 @@ FZF_ALT_C_COMMAND=""
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
+# zoxide
+eval "$(zoxide init zsh)"
