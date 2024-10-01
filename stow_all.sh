@@ -1,4 +1,6 @@
 #! /bin/bash
 
-stow zsh
-stow nvim
+for package in zsh nvim git zellij
+do
+	stow -v1 -t ~ $package
+done
