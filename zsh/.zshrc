@@ -34,7 +34,6 @@ unsetopt autocd
 # alias
 alias ls='lsd'
 alias ll='ls -la'
-alias vi='nvim'
 alias zj='zellij'
 eval "$(gh copilot alias -- zsh)"
 
