@@ -8,3 +8,6 @@ map("i", "jj", "<ESC>", { silent = true })
 
 -- ctrl + f to search the word under the cursor
 map("n", "<C-f>", 'viwy/<C-r>"<CR>', { silent = true })
+
+-- alt + o to trigger :ClangdSwitchSourceHeader
+map("n", "<A-o>", ":ClangdSwitchSourceHeader<CR>", { silent = true })
